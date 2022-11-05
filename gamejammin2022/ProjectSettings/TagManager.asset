@@ -50,3 +50,6 @@ TagManager:
   - name: player layer
     uniqueID: 2427298835
     locked: 0
+  - name: in front of player
+    uniqueID: 2071866847
+    locked: 0

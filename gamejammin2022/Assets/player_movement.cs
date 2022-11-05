@@ -15,7 +15,7 @@ public class player_movement : MonoBehaviour
     {
         if (Input.GetKey("space"))
         {
-            GetComponent<Ridgidbody2D>().velocity = new Vector3(0, 10, 0);
+            GetComponent<Rigidbody2D>().velocity = new Vector3(0, 10, 0);
         } 
     }
 }
