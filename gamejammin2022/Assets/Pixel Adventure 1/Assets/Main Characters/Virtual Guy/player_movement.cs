@@ -12,8 +12,6 @@ public class player_movement : MonoBehaviour
     private float direcX = 0;
     public float jumpForce = 20f;
 
-    private enum MovementState { idle, running, jumping, falling }
-    private MovementState state = MovementState.jumping;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +19,7 @@ public class player_movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame
@@ -41,30 +40,16 @@ public class player_movement : MonoBehaviour
 
     private void UpdateAnim()
     {
-
-        MovmentState state; 
+ 
         if (direcX > 0f)
-        {
-            state = MovementState.running; 
+        { 
             sprite.flipX = false;
         }
         else if (direcX < 0f)
         {
-            state = MovementState.running;
             sprite.flipX = true;
         }
-        else
-        {
-            state = MovementState.idle;
-        }
 
-        if (rb.velocity.y > 0.1f)
-        {
-            state = MovementState.jumping;
-        }
-        else if (rb.velocity.y < -0.1f){
-            state = MovementState.falling;
-        }
-        anim.SetInteger("state", (int)state);
+       
     }
 }
